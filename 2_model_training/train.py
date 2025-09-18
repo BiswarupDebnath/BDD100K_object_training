@@ -56,8 +56,10 @@ val_dataset = CustomDataset(labels=val_labels_trimmed,
 # Setup DataLoaders
 # --------------------------------
 batch_size = 32
-train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True, pin_memory=True)
-val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False, pin_memory=True)
+train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True,
+                                           pin_memory=True)
+val_loader = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False,
+                                         pin_memory=True)
 
 # --------------------------------
 # Define model
@@ -110,5 +112,5 @@ for epoch in range(num_epochs):
             print("Val loss: %s" % val_loss)
 
 # Save the trained model
-checkpoint_path = './object_detection_model.pth'
+checkpoint_path = '../3_evaluation_and_visualisation/object_detection_model.pth'
 torch.save(model.state_dict(), checkpoint_path)
