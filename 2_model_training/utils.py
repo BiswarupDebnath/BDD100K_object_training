@@ -8,7 +8,7 @@ from PIL import Image
 from torchvision.ops import box_convert, box_iou
 
 # Initialise data paths
-DATASET_PATH = '/Users/biswarupdebnath/Desktop/laptop_backup/laptop_Documents/personal_documents/job_prep/bosch/assignment_data_bdd/'
+DATASET_PATH = '/home/jovyan/assignment_data_bdd/'
 
 IMAGES_PATH = osp.join(DATASET_PATH, 'bdd100k_images_100k/bdd100k/images/100k')
 LABELS_PATH = osp.join(DATASET_PATH, 'bdd100k_labels_release/bdd100k/labels')
