@@ -1,25 +1,10 @@
 """ Creates a custom dataset class for loading images and labels for a CustomYolov5 model."""
-import io
 import os.path as osp
-import random
-import time
 import numpy as np
 from PIL import Image
 
 import torch
 from torch.utils.data import Dataset
-import ujson as json
-
-
-import torch
-import torch.nn as nn
-import torchvision
-import torchvision.transforms as transforms
-from torch.utils.data import Dataset, DataLoader
-
-import torch.nn.functional as F
-
-
 
 class CustomDataset(Dataset):
     def __init__(self, labels, images_path, transform=None):
@@ -57,7 +42,6 @@ class CustomDataset(Dataset):
             img = self.transform(img)
 
         target_tensor = torch.zeros((self.ny, self.nx, 5 + self.nc))
-        boxes = []
         for obj in labels['labels']:
             if 'box2d' in obj:
                 x1, y1, x2, y2 = obj['box2d']['x1'], obj['box2d']['y1'], obj['box2d']['x2'], \
